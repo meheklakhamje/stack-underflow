@@ -1,0 +1,22 @@
+<!-- Skeleton of the website -->
+ {% load tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}StackUnderflow{% endblock %}</title>
+
+    {% tailwind_css %}
+</head>
+
+<body class="min-h-screen bg-gray-50 text-gray-900">
+
+    <!-- empty space reserved for each individual page's content. -->
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
