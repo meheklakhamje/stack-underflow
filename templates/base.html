@@ -1,5 +1,4 @@
-<!-- Skeleton of the website -->
- {% load tailwind_tags %}
+{% load tailwind_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +13,8 @@
 
 <body class="min-h-screen bg-gray-50 text-gray-900">
 
-    <!-- empty space reserved for each individual page's content. -->
+    {% include "components/navbar.html" %}
+
     {% block content %}
     {% endblock %}
 
