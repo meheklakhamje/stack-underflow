@@ -1,22 +1,35 @@
 {% load tailwind_tags %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}StackUnderflow{% endblock %}</title>
+    <title>
+        {% block title %}StackUnderflow{% endblock %}
+    </title>
 
     {% tailwind_css %}
 </head>
 
-<body class="min-h-screen bg-gray-50 text-gray-900">
+<body class="min-h-screen bg-slate-50 text-slate-900">
 
+    <!-- Navbar -->
     {% include "components/navbar.html" %}
 
-    {% block content %}
-    {% endblock %}
+    <!-- Main Layout -->
+    <div class="flex">
+
+        <!-- Sidebar -->
+        {% include "components/sidebar.html" %}
+
+        <!-- Page Content -->
+        <main class="min-w-0 flex-1">
+            {% block content %}
+            {% endblock %}
+        </main>
+
+    </div>
 
 </body>
 </html>
