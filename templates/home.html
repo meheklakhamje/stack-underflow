@@ -1,25 +1,23 @@
-{% load tailwind_tags %} <!--loads the Tailwind template tags provided by django-tailwind. -->
+{% extends "base.html" %} <!--tells to Use base.html as my parent template.-->>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}
+    Home | StackUnderflow
+{% endblock %}
 
-    <title>StackUnderflow</title>
+{% block content %}
 
-    {% tailwind_css %} <!--Include our Tailwind CSS here.-->
-</head>
+    <main class="min-h-screen flex items-center justify-center px-6">
 
-<body class="bg-gray-100">
+        <div class="text-center">
+            <h1 class="text-4xl font-bold tracking-tight text-gray-900">
+                Welcome to StackUnderflow
+            </h1>
 
-    <h1 class="text-4xl font-bold text-blue-600">
-        Welcome to StackUnderflow!
-    </h1>
+            <p class="mt-4 text-lg text-gray-600">
+                A programming Q&A community built for developers.
+            </p>
+        </div>
 
-    <p class="mt-4 text-gray-700">
-        My Django project is working with Tailwind CSS.
-    </p>
+    </main>
 
-</body>
-</html>
+{% endblock %}
