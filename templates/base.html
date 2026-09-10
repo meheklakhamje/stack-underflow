@@ -12,19 +12,21 @@
     {% tailwind_css %}
 </head>
 
-<body class="min-h-screen bg-slate-50 text-slate-900">
+<body class="h-screen overflow-hidden bg-slate-50 text-slate-900">
 
-    <!-- Navbar -->
-    {% include "components/navbar.html" %}
+    <!-- Fixed Navbar -->
+    <div class="fixed inset-x-0 top-0 z-50">
+        {% include "components/navbar.html" %}
+    </div>
 
-    <!-- Main Layout -->
-    <div class="flex">
+    <!-- Application Layout -->
+    <div class="flex h-screen pt-16">
 
         <!-- Sidebar -->
         {% include "components/sidebar.html" %}
 
-        <!-- Page Content -->
-        <main class="min-w-0 flex-1">
+        <!-- Scrollable Main Content -->
+        <main class="min-w-0 flex-1 overflow-y-auto lg:ml-64">
             {% block content %}
             {% endblock %}
         </main>
