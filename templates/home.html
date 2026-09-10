@@ -1,23 +1,255 @@
-{% extends "base.html" %} <!--tells to Use base.html as my parent template.-->>
+{% extends "base.html" %}
 
-{% block title %}
-    Home | StackUnderflow
-{% endblock %}
+{% block title %}Questions - StackUnderflow{% endblock %}
 
 {% block content %}
 
-    <main class="min-h-screen flex items-center justify-center px-6">
+<div class="mx-auto max-w-7xl px-6 py-8">
 
-        <div class="text-center">
-            <h1 class="text-4xl font-bold tracking-tight text-gray-900">
-                Welcome to StackUnderflow
+    <!-- Page Header -->
+    <div class="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+
+        <div>
+            <h1 class="text-3xl font-bold tracking-tight text-slate-900">
+                Questions
             </h1>
 
-            <p class="mt-4 text-lg text-gray-600">
-                A programming Q&A community built for developers.
+            <p class="mt-2 text-base text-slate-500">
+                Explore programming questions, share knowledge, and learn from the community.
             </p>
         </div>
 
-    </main>
+        <!-- Primary Action -->
+        <a href="#"
+            class="inline-flex w-fit items-center justify-center rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2">
+            Ask Question
+        </a>
+
+    </div>
+
+
+    <!-- Question Controls -->
+    <div class="mt-5 flex flex-col gap-4 border-b border-slate-200 pb-4 sm:flex-row sm:items-center sm:justify-between">
+
+        <p class="text-base font-medium text-slate-600">
+            1,248 questions
+        </p>
+
+        <!-- Sorting Controls -->
+        <div class="flex w-fit rounded-md border border-slate-200 bg-white p-0.5">
+
+            <button type="button" class="rounded bg-slate-100 px-3.5 py-1.5 text-sm font-semibold text-slate-800">
+                Newest
+            </button>
+
+            <button type="button"
+                class="rounded px-3.5 py-1.5 text-sm font-medium text-slate-500 transition hover:bg-slate-50 hover:text-slate-800">
+                Active
+            </button>
+
+            <button type="button"
+                class="rounded px-3.5 py-1.5 text-sm font-medium text-slate-500 transition hover:bg-slate-50 hover:text-slate-800">
+                Unanswered
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Question List -->
+    <!-- Question List -->
+    <div class="divide-y divide-slate-200">
+
+        {% include "components/question_card.html" %}
+
+        <!-- Question 2 -->
+        <article class="py-6">
+            <div class="flex flex-col gap-5 sm:flex-row">
+
+                <div class="flex shrink-0 gap-4 text-sm text-slate-500 sm:w-28 sm:flex-col sm:gap-2 sm:text-right">
+                    <span><strong class="font-semibold text-slate-700">17</strong> votes</span>
+                    <span><strong class="font-semibold text-slate-700">2</strong> answers</span>
+                    <span><strong class="font-semibold text-slate-700">96</strong> views</span>
+                </div>
+
+                <div class="min-w-0 flex-1">
+
+                    <a href="#" class="text-lg font-semibold leading-7 text-slate-900 transition hover:text-slate-700">
+                        Why is my JavaScript fetch request returning an empty response?
+                    </a>
+
+                    <p class="mt-2 max-w-4xl text-sm leading-6 text-slate-500">
+                        My API endpoint works when I test it directly, but the fetch request from my
+                        JavaScript code does not return the expected JSON data. How can I debug this?
+                    </p>
+
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                            javascript
+                        </span>
+                        <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                            fetch
+                        </span>
+                        <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                            api
+                        </span>
+                    </div>
+
+                    <div class="mt-4 flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
+                        <span class="font-medium text-slate-700">Riya</span>
+                        <span>•</span>
+                        <span>860 reputation</span>
+                        <span>•</span>
+                        <span>asked 42 minutes ago</span>
+                    </div>
+
+                </div>
+            </div>
+        </article>
+
+
+        <!-- Question 3 -->
+        <article class="py-6">
+            <div class="flex flex-col gap-5 sm:flex-row">
+
+                <div class="flex shrink-0 gap-4 text-sm text-slate-500 sm:w-28 sm:flex-col sm:gap-2 sm:text-right">
+                    <span><strong class="font-semibold text-slate-700">31</strong> votes</span>
+                    <span><strong class="font-semibold text-slate-700">5</strong> answers</span>
+                    <span><strong class="font-semibold text-slate-700">241</strong> views</span>
+                </div>
+
+                <div class="min-w-0 flex-1">
+
+                    <a href="#" class="text-lg font-semibold leading-7 text-slate-900 transition hover:text-slate-700">
+                        How do I join two tables using Django ORM?
+                    </a>
+
+                    <p class="mt-2 max-w-4xl text-sm leading-6 text-slate-500">
+                        I have a Customer model and an Order model and need to display orders along
+                        with customer information. What is the recommended way to handle this using
+                        Django's ORM?
+                    </p>
+
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                            django
+                        </span>
+                        <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                            python
+                        </span>
+                        <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                            django-orm
+                        </span>
+                    </div>
+
+                    <div class="mt-4 flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
+                        <span class="font-medium text-slate-700">Kabir</span>
+                        <span>•</span>
+                        <span>2,130 reputation</span>
+                        <span>•</span>
+                        <span>asked 1 hour ago</span>
+                    </div>
+
+                </div>
+            </div>
+        </article>
+
+
+        <!-- Question 4 -->
+        <article class="py-6">
+            <div class="flex flex-col gap-5 sm:flex-row">
+
+                <div class="flex shrink-0 gap-4 text-sm text-slate-500 sm:w-28 sm:flex-col sm:gap-2 sm:text-right">
+                    <span><strong class="font-semibold text-slate-700">9</strong> votes</span>
+                    <span><strong class="font-semibold text-slate-700">1</strong> answers</span>
+                    <span><strong class="font-semibold text-slate-700">73</strong> views</span>
+                </div>
+
+                <div class="min-w-0 flex-1">
+
+                    <a href="#" class="text-lg font-semibold leading-7 text-slate-900 transition hover:text-slate-700">
+                        Why does my CSS grid layout break on smaller screens?
+                    </a>
+
+                    <p class="mt-2 max-w-4xl text-sm leading-6 text-slate-500">
+                        The layout looks correct on desktop, but some grid items overflow when the
+                        browser width becomes smaller. How can I make the grid responsive?
+                    </p>
+
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                            css
+                        </span>
+                        <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                            html
+                        </span>
+                        <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                            responsive-design
+                        </span>
+                    </div>
+
+                    <div class="mt-4 flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
+                        <span class="font-medium text-slate-700">Neha</span>
+                        <span>•</span>
+                        <span>540 reputation</span>
+                        <span>•</span>
+                        <span>asked 2 hours ago</span>
+                    </div>
+
+                </div>
+            </div>
+        </article>
+
+
+        <!-- Question 5 -->
+        <article class="py-6">
+            <div class="flex flex-col gap-5 sm:flex-row">
+
+                <div class="flex shrink-0 gap-4 text-sm text-slate-500 sm:w-28 sm:flex-col sm:gap-2 sm:text-right">
+                    <span><strong class="font-semibold text-slate-700">14</strong> votes</span>
+                    <span><strong class="font-semibold text-slate-700">4</strong> answers</span>
+                    <span><strong class="font-semibold text-slate-700">128</strong> views</span>
+                </div>
+
+                <div class="min-w-0 flex-1">
+
+                    <a href="#" class="text-lg font-semibold leading-7 text-slate-900 transition hover:text-slate-700">
+                        What is the difference between INNER JOIN and LEFT JOIN in SQL?
+                    </a>
+
+                    <p class="mt-2 max-w-4xl text-sm leading-6 text-slate-500">
+                        I'm learning SQL joins and understand the basic syntax, but I'm still confused
+                        about when I should use an INNER JOIN versus a LEFT JOIN. Can someone explain
+                        the practical difference?
+                    </p>
+
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                            sql
+                        </span>
+                        <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                            mysql
+                        </span>
+                        <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                            database
+                        </span>
+                    </div>
+
+                    <div class="mt-4 flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
+                        <span class="font-medium text-slate-700">Dev</span>
+                        <span>•</span>
+                        <span>1,080 reputation</span>
+                        <span>•</span>
+                        <span>asked 3 hours ago</span>
+                    </div>
+
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+</div>
 
 {% endblock %}
