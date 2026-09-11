@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
 
-
+# Model = the blueprint for data.
 class Question(models.Model):
     title = models.CharField(max_length=200)
     body = models.TextField()
