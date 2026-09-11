@@ -1,0 +1,44 @@
+{% load tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}StackUnderflow{% endblock %}</title>
+
+    {% tailwind_css %}
+</head>
+
+<body class="min-h-screen overflow-hidden bg-slate-50">
+
+    <!-- Authentication Header -->
+    <header class="border-b border-slate-200 bg-white">
+        <div class="mx-auto flex h-16 max-w-7xl items-center px-6">
+
+            <a
+                href="{% url 'home' %}"
+                class="flex items-center gap-3"
+            >
+                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-900 text-sm font-bold text-white">
+                    &lt;/&gt;
+                </div>
+
+                <span class="text-xl font-bold tracking-tight text-slate-900">
+                    StackUnderflow
+                </span>
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- Authentication Content -->
+    <main class="flex min-h-[calc(100vh-4rem)] items-center justify-center">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>
