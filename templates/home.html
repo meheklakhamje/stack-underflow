@@ -6,77 +6,88 @@
 
 <div class="mx-auto max-w-7xl px-6 py-8">
 
-<!-- Page Header -->
-<div class="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+    <!-- Page Header -->
+    <div class="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
 
-    <div>
-        <h1 class="text-3xl font-bold tracking-tight text-slate-900">
-            Questions
-        </h1>
+        <div>
+            <h1 class="text-3xl font-bold tracking-tight text-slate-900">
+                Questions
+            </h1>
 
-        <p class="mt-2 text-base text-slate-500">
-            Explore programming questions, share knowledge, and learn from the community.
+            <p class="mt-2 text-base text-slate-500">
+                Explore programming questions, share knowledge, and learn from the community.
+            </p>
+        </div>
+
+        <!-- Primary Action -->
+        <a
+            href="#"
+            class="inline-flex w-fit items-center justify-center rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2"
+        >
+            Ask Question
+        </a>
+
+    </div>
+
+
+    <!-- Question Controls -->
+    <div class="mt-5 flex flex-col gap-4 border-b border-slate-200 pb-4 sm:flex-row sm:items-center sm:justify-between">
+
+        <p class="text-base font-medium text-slate-600">
+            {{ questions|length }} questions
         </p>
-    </div>
 
-    <!-- Primary Action -->
-    <a
-        href="#"
-        class="inline-flex w-fit items-center justify-center rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2"
-    >
-        Ask Question
-    </a>
+        <!-- Sorting Controls -->
+        <div class="flex w-fit rounded-md border border-slate-200 bg-white p-0.5">
 
-</div>
+            <button
+                type="button"
+                class="rounded bg-slate-100 px-3.5 py-1.5 text-sm font-semibold text-slate-800"
+            >
+                Newest
+            </button>
 
+            <button
+                type="button"
+                class="rounded px-3.5 py-1.5 text-sm font-medium text-slate-500 transition hover:bg-slate-50 hover:text-slate-800"
+            >
+                Active
+            </button>
 
-<!-- Question Controls -->
-<div class="mt-5 flex flex-col gap-4 border-b border-slate-200 pb-4 sm:flex-row sm:items-center sm:justify-between">
+            <button
+                type="button"
+                class="rounded px-3.5 py-1.5 text-sm font-medium text-slate-500 transition hover:bg-slate-50 hover:text-slate-800"
+            >
+                Unanswered
+            </button>
 
-    <p class="text-base font-medium text-slate-600">
-        1,248 questions
-    </p>
-
-    <!-- Sorting Controls -->
-    <div class="flex w-fit rounded-md border border-slate-200 bg-white p-0.5">
-
-        <button
-            type="button"
-            class="rounded bg-slate-100 px-3.5 py-1.5 text-sm font-semibold text-slate-800"
-        >
-            Newest
-        </button>
-
-        <button
-            type="button"
-            class="rounded px-3.5 py-1.5 text-sm font-medium text-slate-500 transition hover:bg-slate-50 hover:text-slate-800"
-        >
-            Active
-        </button>
-
-        <button
-            type="button"
-            class="rounded px-3.5 py-1.5 text-sm font-medium text-slate-500 transition hover:bg-slate-50 hover:text-slate-800"
-        >
-            Unanswered
-        </button>
+        </div>
 
     </div>
 
-</div>
 
+    <!-- Question List -->
+    <div class="divide-y divide-slate-200">
 
-<!-- Question List -->
-<div class="divide-y divide-slate-200">
+        {% for question in questions %}
 
-    {% for question in questions %}
+            {% include "components/question_card.html" with votes=question.votes answers=0 views=question.views title=question.title excerpt=question.body author=question.author.username reputation="0" time=question.created_at %}
 
-        {% include "components/question_card.html" with votes=question.votes answers=question.answers views=question.views title=question.title excerpt=question.excerpt tag1=question.tag1 tag2=question.tag2 tag3=question.tag3 author=question.author reputation=question.reputation time=question.time %}
+        {% empty %}
 
-    {% endfor %}
+            <div class="py-12 text-center">
+                <h2 class="text-lg font-semibold text-slate-900">
+                    No questions yet
+                </h2>
 
-</div>
+                <p class="mt-2 text-sm text-slate-500">
+                    Be the first to ask a programming question.
+                </p>
+            </div>
 
+        {% endfor %}
+
+    </div>
 
 </div>
 
