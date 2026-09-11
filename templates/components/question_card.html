@@ -6,17 +6,23 @@
         <div class="flex shrink-0 gap-4 text-sm text-slate-500 sm:w-28 sm:flex-col sm:gap-2 sm:text-right">
 
             <span>
-                <strong class="font-semibold text-slate-700">24</strong>
+                <strong class="font-semibold text-slate-700">
+                    {{ votes }}
+                </strong>
                 votes
             </span>
 
             <span>
-                <strong class="font-semibold text-slate-700">3</strong>
+                <strong class="font-semibold text-slate-700">
+                    {{ answers }}
+                </strong>
                 answers
             </span>
 
             <span>
-                <strong class="font-semibold text-slate-700">182</strong>
+                <strong class="font-semibold text-slate-700">
+                    {{ views }}
+                </strong>
                 views
             </span>
 
@@ -30,30 +36,34 @@
                 href="#"
                 class="text-lg font-semibold leading-7 text-slate-900 transition hover:text-slate-700"
             >
-                How can I fix a Django template not found error?
+                {{ title }}
             </a>
 
             <p class="mt-2 max-w-4xl text-sm leading-6 text-slate-500">
-                I'm building a Django application and my view loads correctly, but Django
-                keeps returning a "TemplateDoesNotExist" error when I try to render the page.
-                What should I check in my template configuration?
+                {{ excerpt }}
             </p>
 
 
             <!-- Tags -->
             <div class="mt-4 flex flex-wrap gap-2">
 
-                <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
-                    django
-                </span>
+                {% if tag1 %}
+                    <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                        {{ tag1 }}
+                    </span>
+                {% endif %}
 
-                <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
-                    python
-                </span>
+                {% if tag2 %}
+                    <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                        {{ tag2 }}
+                    </span>
+                {% endif %}
 
-                <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
-                    templates
-                </span>
+                {% if tag3 %}
+                    <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
+                        {{ tag3 }}
+                    </span>
+                {% endif %}
 
             </div>
 
@@ -62,19 +72,19 @@
             <div class="mt-4 flex flex-wrap items-center gap-1.5 text-xs text-slate-500">
 
                 <span class="font-medium text-slate-700">
-                    Aarav
+                    {{ author }}
                 </span>
 
                 <span>•</span>
 
                 <span>
-                    1,420 reputation
+                    {{ reputation }} reputation
                 </span>
 
                 <span>•</span>
 
                 <span>
-                    asked 18 minutes ago
+                    {{ time }}
                 </span>
 
             </div>
